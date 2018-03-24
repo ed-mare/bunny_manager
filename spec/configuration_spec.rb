@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe BunnyManager::Configuration do
-
   let(:config) { BunnyManager::Configuration.new }
   let(:conn_configs) do
     {
       host: '111.222.333.444',
-      port: 12345,
+      port: 12_345,
       vhost: '/foo',
       user: 'bar',
       pass: 'baz'
@@ -41,7 +40,7 @@ RSpec.describe BunnyManager::Configuration do
 
   describe '#connection_configs' do
     it 'defaults to empty hash' do
-      expect(config.connection_configs).to eq(Hash.new)
+      expect(config.connection_configs).to eq({})
     end
     it 'is configurable' do
       expect(config_override.connection_configs).to eq(conn_configs)
@@ -56,5 +55,4 @@ RSpec.describe BunnyManager::Configuration do
       expect(config_override.logger).to eq('xyz')
     end
   end
-
 end

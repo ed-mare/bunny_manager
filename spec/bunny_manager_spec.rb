@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe BunnyManager do
-
   it 'has a version number' do
     expect(BunnyManager::VERSION).not_to be nil
   end
@@ -71,7 +70,7 @@ RSpec.describe BunnyManager do
     it 'shuts down each channel in the channel pool' do
       BunnyManager.connect
       BunnyManager.channel do |channel|
-        xchange = channel.topic("emails.exchange", durable: true)
+        channel.topic('emails.exchange', durable: true)
       end
 
       pool = BunnyManager.instance_variable_get(:@channel_pool)
@@ -82,5 +81,4 @@ RSpec.describe BunnyManager do
       expect(pool_que.size).to eq(0)
     end
   end
-
 end

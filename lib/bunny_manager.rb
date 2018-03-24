@@ -5,6 +5,7 @@ require 'connection_pool'
 require 'bunny_manager/version'
 require 'bunny_manager/configuration'
 
+# Gem for managing Bunny connections and channels.
 module BunnyManager
   class << self
     attr_writer :configuration
@@ -54,7 +55,7 @@ module BunnyManager
     # @return [Boolean] true if an instance of Bunny::Session.
     def connected?
       @connection.respond_to?(:connected?) &&
-         @connection.connected?
+        @connection.connected?
     end
 
     # Shuts down connection pool of channels. Closes connection to RabbitMQ.
@@ -110,7 +111,9 @@ module BunnyManager
       def create
         client_class.new(BunnyManager.connection_configs).tap(&:start)
       end
+
       protected
+
       # For stubbing.
       def client_class
         Bunny
