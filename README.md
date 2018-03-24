@@ -9,8 +9,8 @@ Bunny states in its [concurrency documentation](http://rubybunny.info/articles/c
 > Channels must not be shared between threads. When client publishes a message, at least 2 (typically 3) frames are sent on the wire:
 
 > - AMQP 0.9.1 method, basic.publish
-- Message metadata
-- Message payload
+> - Message metadata
+> - Message payload
 
 > This means that without synchronization on, publishing from multiple threads on a shared channel may result in frames being sent to RabbitMQ out of order.
 
@@ -46,7 +46,7 @@ In an initializer...
 ```ruby
 require 'bunny_manager'
 
-# 1) Configure the gem in an initializer.
+# 1) Configure the gem 
 
 BunnyManager.configure do |c|
   # Maximum number of channels in pool
