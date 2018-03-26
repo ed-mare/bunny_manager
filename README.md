@@ -48,7 +48,7 @@ In an initializer...
 ```ruby
 require 'bunny_manager'
 
-# 1) Configure the gem
+# 1) Configure
 
 BunnyManager.configure do |c|
   # Maximum number of channels in pool
