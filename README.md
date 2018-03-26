@@ -14,6 +14,8 @@ Bunny states in its [concurrency documentation](http://rubybunny.info/articles/c
 
 > This means that without synchronization on, publishing from multiple threads on a shared channel may result in frames being sent to RabbitMQ out of order.
 
+---
+
 This is a WIP. Known to work with Ruby 2.3.x.
 
 ## Installation
@@ -46,7 +48,7 @@ In an initializer...
 ```ruby
 require 'bunny_manager'
 
-# 1) Configure the gem 
+# 1) Configure the gem
 
 BunnyManager.configure do |c|
   # Maximum number of channels in pool
@@ -158,7 +160,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## TODO
 
 - Conn.create - rescue from all exceptions?
-- Better to setup tests with a real RabbitMQ instance.
+- Better to test with a real RabbitMQ instance?
 
 ## Code of Conduct
 

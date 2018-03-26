@@ -107,7 +107,7 @@ module BunnyManager
   class Conn
     class << self
       # Creates a Bunny session.
-      # @return [Bunny::Session] Bunny::Session instance.
+      # @return [Bunny::Session] Bunny::Session instance which has been started.
       def create
         client_class.new(BunnyManager.connection_configs).tap(&:start)
       end
